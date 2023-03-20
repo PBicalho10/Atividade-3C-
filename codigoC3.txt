@@ -1,0 +1,29 @@
+using System;
+
+class Vendedor {
+    public string nome;
+    public double salarioFixo;
+    public double totalVendas;
+
+    public double CalcularSalarioTotal() {
+        double comissao = totalVendas * 0.15;
+        return salarioFixo + comissao;
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Vendedor vendedor = new Vendedor();
+
+        // leitura dos dados de entrada
+        vendedor.nome = Console.ReadLine();
+        vendedor.salarioFixo = double.Parse(Console.ReadLine());
+        vendedor.totalVendas = double.Parse(Console.ReadLine());
+
+        // cálculo do salário total
+        double salarioTotal = vendedor.CalcularSalarioTotal();
+
+        // exibição do resultado
+        Console.WriteLine("TOTAL = R$ " + salarioTotal.ToString("F2"));
+    }
+}
